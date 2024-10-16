@@ -1,0 +1,15 @@
+.container {
+    max-width: 400px;
+    margin: auto;
+    border: 1px solid #4cb642;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+h1 {
+    color: #333;
+}
+
+input[type="file"] {
+    margin: 10px 0;
+}
