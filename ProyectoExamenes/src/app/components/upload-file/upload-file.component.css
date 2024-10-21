@@ -1,9 +1,16 @@
+html, body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
 .container {
     max-width: 400px;
-    margin: auto;
-    border: 1px solid #ccc;
-    padding: 20px;
+    margin: 10px auto; /* Ajusta el margen superior para controlar la altura */
+    border: 1px solid #4ad76b;
+    padding: 300px;
     border-radius: 5px;
+    
 }
 
 h1 {

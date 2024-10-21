@@ -1,0 +1,21 @@
+<div class="exam-generator">
+    <h2>Generar Examen desde un Archivo</h2>
+  
+    <!-- Input para seleccionar el archivo de Excel -->
+    <input type="file" (change)="onFileChange($event)" accept=".xlsx, .xls" />
+    <button (click)="generateExam()" [disabled]="!file">Generar Examen</button>
+  
+    <!-- Mostrar preguntas generadas -->
+    <div *ngIf="questions.length > 0">
+      <h3>Preguntas Generadas</h3>
+      <ul>
+        <li *ngFor="let question of questions; let i = index">
+          <strong>{{ i + 1 }}. {{ question.text }}</strong>
+          <ul>
+            <li *ngFor="let option of question.options">{{ option }}</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
