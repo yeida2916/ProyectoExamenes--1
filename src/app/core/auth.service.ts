@@ -20,9 +20,14 @@ export class AuthService {
 
   // Verificar si hay token al iniciar la app
   private hasToken(): boolean {
-    return !!localStorage.getItem('token');
+    if (typeof localStorage !== 'undefined') {
+      return !!localStorage.getItem('token');
+    } else {
+      console.warn('localStorage no está soportado en este entorno.');
+      return false;
+    }
   }
-
+  
   login(credentials: { email: string; password: string }): Observable<any> {
     return this.http.post(`${this.authUrl}/login`, credentials).pipe(
       tap((response: any) => {
