@@ -29,6 +29,9 @@ import { ReactiveFormsModule } from '@angular/forms';
       display: flex;
       flex-direction: column;
     }
+    input {
+      margin-bottom: 1em;
+    }
   `]
 })
 export class RecoverPasswordComponent {
