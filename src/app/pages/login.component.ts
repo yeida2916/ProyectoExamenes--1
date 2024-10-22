@@ -11,17 +11,22 @@ import { HttpClientModule } from '@angular/common/http';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
   template: `
-    <div class="login-container">
+          <div class="login-container">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <h2>Login</h2>
         <label>Email</label>
         <input formControlName="email" type="email" />
         <label>Password</label>
-        <input formControlName="password" type="password" />
+        <input [type]="showPassword ? 'text' : 'password'" formControlName="password" />
+        <div>
+          <input type="checkbox" (change)="toggleShowPassword()"> Show Password
+        </div>
         <button type="submit" [disabled]="loginForm.invalid">Login</button>
         <p *ngIf="errorMessage">{{ errorMessage }}</p>
-        <a (click)="goToRegister()">Register</a> | 
-        <a (click)="goToRecoverPassword()">Forgot Password?</a>
+        <div class="button-group">
+          <button type="button" (click)="goToRegister()">Register</button>
+          <button type="button" (click)="goToRecoverPassword()">Forgot Password?</button>
+        </div>
       </form>
     </div>
   `,
@@ -35,11 +40,28 @@ import { HttpClientModule } from '@angular/common/http';
       display: flex;
       flex-direction: column;
     }
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1em;
+    }
+    .button-group button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .button-group button:hover {
+      background-color: #0056b3;
+    }
   `]
 })
 export class LoginComponent {
   loginForm: FormGroup;
   errorMessage: string | null = null;
+  showPassword: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -59,6 +81,10 @@ export class LoginComponent {
         error: (err) => this.errorMessage = 'Invalid login credentials',
       });
     }
+  }
+
+  toggleShowPassword() {
+    this.showPassword = !this.showPassword;
   }
 
   goToRegister() {
