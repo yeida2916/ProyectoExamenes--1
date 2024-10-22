@@ -34,7 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
   `,
   styles: [`
     .login-container {
-      max-width: 400px;
+      width: 350px;
       margin: 0 auto;
       padding: 2em;
       position: absolute;
@@ -44,6 +44,7 @@ import { HttpClientModule } from '@angular/common/http';
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
       text-align: center;
+      background-color: #fff;
     }
     form {
       display: flex;
@@ -58,41 +59,40 @@ import { HttpClientModule } from '@angular/common/http';
       width: 100%;
       padding: 10px;
       margin-bottom: 1em;
-      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .show-password {
+      margin-bottom: 1em;
     }
     button {
-      padding: 10px 20px;
-      font-size: 1.1em;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 1em;
+      margin-top: 1em;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
       cursor: pointer;
     }
-    a {
-      color: blue;
-      cursor: pointer;
-      text-decoration: none;
-      margin-top: 0.5em;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .icon {
-      font-size: 4em; /* Tamaño grande del ícono */
-      margin-bottom: 0.5em;
-      color: #333;
+    button:hover {
+      background-color: #0056b3;
     }
     .button-group {
       display: flex;
       justify-content: space-between;
-      margin-top: 1em;
+      width: 100%;
     }
     .button-group button {
+      width: 48%;
+      padding: 0.3em;
       background-color: #007bff;
       color: white;
       border: none;
-      padding: 0.5em 1em;
-      cursor: pointer;
       border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.875em; /* Tamaño de fuente más pequeño */
     }
     .button-group button:hover {
       background-color: #0056b3;
