@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
   template: `
     <div class="login-container">
+    <i class="bi bi-person-circle fs-1 icon"></i> 
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <h2>Login</h2>
         <label>Email</label>
@@ -29,11 +30,50 @@ import { HttpClientModule } from '@angular/common/http';
     .login-container {
       max-width: 400px;
       margin: 0 auto;
-      padding: 1em;
+      padding: 2em;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      text-align: center;
     }
     form {
       display: flex;
       flex-direction: column;
+      align-items: center;
+    }
+    h2 {
+      font-size: 2em;
+      margin-bottom: 1em;  
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 1em;
+      font-size: 1em;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+    a {
+      color: blue;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 0.5em;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .icon {
+      font-size: 4em; /* Tamaño grande del ícono */
+      margin-bottom: 0.5em;
+      color: #333;
     }
   `]
 })
