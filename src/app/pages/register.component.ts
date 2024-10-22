@@ -10,13 +10,18 @@ import { ReactiveFormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   template: `
-    <div class="register-container">
+  <div class="register-container">
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <h2>Register</h2>
         <label>Email</label>
         <input formControlName="email" type="email" />
         <label>Password</label>
-        <input formControlName="password" type="password" />
+        <input [type]="showPassword ? 'text' : 'password'" formControlName="password" />
+        <label>Confirm Password</label>
+        <input [type]="showPassword ? 'text' : 'password'" formControlName="confirmPassword" />
+        <div>
+          <input type="checkbox" (change)="toggleShowPassword()"> Show Password
+        </div>
         <button type="submit" [disabled]="registerForm.invalid">Register</button>
         <p *ngIf="errorMessage">{{ errorMessage }}</p>
       </form>
@@ -37,6 +42,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class RegisterComponent {
   registerForm: FormGroup;
   errorMessage: string | null = null;
+  showPassword: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -46,7 +52,13 @@ export class RegisterComponent {
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-    });
+      confirmPassword: ['', Validators.required],
+    }, { validator: this.passwordMatchValidator });
+  }
+
+  passwordMatchValidator(form: FormGroup) {
+    return form.get('password')!.value === form.get('confirmPassword')!.value
+      ? null : { mismatch: true };
   }
 
   onSubmit() {
@@ -56,5 +68,9 @@ export class RegisterComponent {
         error: (err) => this.errorMessage = 'Registration failed',
       });
     }
+  }
+
+  toggleShowPassword() {
+    this.showPassword = !this.showPassword;
   }
 }
