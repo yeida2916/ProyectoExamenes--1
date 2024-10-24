@@ -11,25 +11,25 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [CommonModule, ReactiveFormsModule],
   template: `
   <div class="register-container">
-      <i class="bi bi-person-circle fs-1 icon"></i>
-      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <h2>Register</h2>
-        <label>Email</label>
-        <input formControlName="email" type="email" />
-        <label>Password</label>
-        <div class="input-icon-wrapper">
-        <input [type]="showPassword ? 'text' : 'password'" formControlName="password" />
-        <i class="bi" [ngClass]="showPassword ? 'bi-eye-fill' : 'bi-eye-slash-fill'" (click)="toggleShowPassword()"></i>
-      </div>
-        <label>Confirm Password</label>
-        <div class="input-icon-wrapper">
-        <input [type]="showPassword ? 'text' : 'password'" formControlName="password" />
-        <i class="bi" [ngClass]="showPassword ? 'bi-eye-fill' : 'bi-eye-slash-fill'" (click)="toggleShowPassword()"></i>
-      </div>
-        <button type="submit" [disabled]="registerForm.invalid">Register</button>
-        <p *ngIf="errorMessage">{{ errorMessage }}</p>
-      </form>
-   </div>
+  <i class="bi bi-person-circle fs-1 icon"></i>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <h2>Register</h2>
+    <label>Email</label>
+    <input formControlName="email" type="email" />
+    <label>Password</label>
+    <div class="input-icon-wrapper">
+      <input [type]="showPassword ? 'text' : 'password'" formControlName="password" />
+      <i class="bi" [ngClass]="showPassword ? 'bi-eye-fill' : 'bi-eye-slash-fill'" (click)="toggleShowPassword()"></i>
+    </div>
+    <label>Confirm Password</label>
+    <div class="input-icon-wrapper">
+      <input [type]="showPassword ? 'text' : 'password'" formControlName="confirmPassword" />
+      <i class="bi" [ngClass]="showPassword ? 'bi-eye-fill' : 'bi-eye-slash-fill'" (click)="toggleShowPassword()"></i>
+    </div>
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+  </form>
+</div>
   `,
   styles: [`
     .register-container {
@@ -146,11 +146,24 @@ export class RegisterComponent {
   }
 
   onSubmit() {
+    console.log('Formulario enviado');
+    console.log('Estado del formulario:', this.registerForm.valid);
+    console.log('Errores del formulario:', this.registerForm.errors);
+  
     if (this.registerForm.valid) {
-      this.authService.register(this.registerForm.value).subscribe({
-        next: () => this.router.navigate(['/login']),
-        error: (err) => this.errorMessage = 'Registration failed',
-      });
+      const { email, password } = this.registerForm.value;
+      this.authService.register(email, password).subscribe(
+        response => {
+          console.log('Registro exitoso:', response);
+          this.router.navigate(['/login']);
+        },
+        error => {
+          console.error('Error en el registro:', error);
+          this.errorMessage = 'Error en el registro. Por favor, inténtelo de nuevo.';
+        }
+      );
+    } else {
+      this.errorMessage = 'Por favor, complete todos los campos correctamente.';
     }
   }
 
