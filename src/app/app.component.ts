@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
-import { ExamListComponent } from './pages/exam-list.component'; 
+import { ExamListComponent } from './pages/exam-list/exam-list.component'; 
 import { MyComponent } from './components/my-component';
 
 @Component({
