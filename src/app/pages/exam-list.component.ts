@@ -10,9 +10,9 @@ import { ExamService } from '../core/exam.service';
   <div class="drag-and-drop" 
        (dragover)="onDragOver($event)" 
        (drop)="onFileDrop($event)">
-    Arrastra y suelta un archivo Excel aquí o selecciona un archivo.
+    Arrastra y suelta un archivo Excel o PDF aquí o selecciona un archivo.
   </div>
-  <input type="file" (change)="onFileSelect($event)" accept=".xlsx,.xls" />
+  <input type="file" (change)="onFileSelect($event)" accept=".xlsx,.xls,.pdf" />
   <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
   <table *ngIf="excelData.length > 0">
     <tr *ngFor="let row of excelData">
@@ -42,45 +42,59 @@ import { ExamService } from '../core/exam.service';
   providers: [ExamService]  // Declarar el servicio en el componente
 })
 export class ExamListComponent {
+  errorMessage: string = '';
   excelData: any[] = [];
-  errorMessage: string | null = null;
 
   constructor(private examService: ExamService) {}
 
-  async onFileSelect(event: any): Promise<void> {
-    this.errorMessage = null; // Reiniciar el mensaje de error
-    const file: File = event.target.files[0];
-    if (file) {
-      try {
-        this.excelData = await this.examService.readExcel(file);
-      } catch (error: unknown) {
-        this.errorMessage = this.getErrorMessage(error); // Capturar y mostrar el error
+  onFileSelect(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      const fileType = file.type;
+
+      if (fileType === 'application/pdf') {
+        // Lógica para manejar archivos PDF
+        this.handlePdfFile(file);
+      } else if (fileType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || fileType === 'application/vnd.ms-excel') {
+        // Lógica para manejar archivos Excel
+        this.handleExcelFile(file);
+      } else {
+        this.errorMessage = 'Tipo de archivo no soportado';
       }
     }
+  }
+
+  handlePdfFile(file: File): void {
+    // Implementar la lógica para manejar archivos PDF
+    console.log('Archivo PDF seleccionado:', file);
+  }
+
+  handleExcelFile(file: File): void {
+    // Implementar la lógica para manejar archivos Excel
+    console.log('Archivo Excel seleccionado:', file);
   }
 
   onDragOver(event: DragEvent): void {
-    event.preventDefault(); // Evitar el comportamiento predeterminado del navegador
+    event.preventDefault();
   }
 
-  async onFileDrop(event: DragEvent): Promise<void> {
+  onFileDrop(event: DragEvent): void {
     event.preventDefault();
-    this.errorMessage = null; // Reiniciar el mensaje de error
     const files = event.dataTransfer?.files;
     if (files && files.length > 0) {
-      const file: File = files[0];
-      try {
-        this.excelData = await this.examService.readExcel(file);
-      } catch (error: unknown) {
-        this.errorMessage = this.getErrorMessage(error); // Capturar y mostrar el error
+      const file = files[0];
+      const fileType = file.type;
+
+      if (fileType === 'application/pdf') {
+        // Lógica para manejar archivos PDF
+        this.handlePdfFile(file);
+      } else if (fileType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || fileType === 'application/vnd.ms-excel') {
+        // Lógica para manejar archivos Excel
+        this.handleExcelFile(file);
+      } else {
+        this.errorMessage = 'Tipo de archivo no soportado';
       }
     }
-  }
-
-  private getErrorMessage(error: unknown): string {
-    if (error instanceof Error) {
-      return error.message;
-    }
-    return 'Error desconocido. No se pudo procesar el archivo.';
   }
 }
