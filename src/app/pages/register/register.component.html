@@ -1,0 +1,16 @@
+<div class="register-container">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="icon">
+        <img src="assets/logo.png" alt="Logo">
+      </div>
+      <h2>Register</h2>
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" placeholder="Email">
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password" placeholder="Password">
+      <label for="confirmPassword">Confirm Password</label>
+      <input id="confirmPassword" formControlName="confirmPassword" type="password" placeholder="Confirm Password">
+      <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+      <button type="submit">Register</button>
+    </form>
+  </div>
