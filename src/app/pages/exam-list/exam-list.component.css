@@ -1,0 +1,17 @@
+.drag-and-drop {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    margin: 10px 0;
+  }
+  .error {
+    color: red;
+    font-weight: bold;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table, th, td {
+    border: 1px solid black;
+  }
