@@ -5,31 +5,42 @@ body {
   margin: 0;
   padding: 0;
 }
-
 .login-container {
-    background-color: #f9f9f9;
-    width: 350px;
-    margin: 0 auto;
-    padding: 2em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+  width: 350px;
+  margin: 0 auto;
+  padding: 4em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  text-align: center;
+  background-color: #fff;
   }
   .icon {
     display: block;
-    margin: 0 auto 20px;
+    margin: 0 auto 10px;
     text-align: center;
+    font-size: 2em;
+  }
+  .input-icon {
+    margin-right: 0.5em; /* Espacio entre el ícono y el campo de entrada */
+    color: #007bff; /* Color del ícono */
+    font-size: 1.2em; /* Tamaño del ícono */
   }
   .input-icon-wrapper input {
     padding-right: 2em; /* Espacio para el icono */
+    margin-bottom: 1.5em; /* Espacio entre los cuadros */
+    height: 50px; /* Altura del cuadro de entrada */
+    border-radius: 4px; /* Esquinas redondeadas */
+    border: 1px solid #ccc; /* Bordes del cuadro */
+    font-size: 1em; /* Tamaño de fuente */
   }
   .input-icon-wrapper .bi {
     position: relative;
+    display: flex;
+    align-items: center; 
   }
   .toggle-password:hover {
     background-color: #0056b3;
