@@ -47,12 +47,11 @@ export class RegisterComponent {
         this.errorMessage = 'Passwords do not match';
         return;
       }
-      this.authService.register({ email, password }, password).subscribe({
+      this.authService.register({ email, password }).subscribe({
         next: () => this.router.navigate(['/login']),
         error: (err) => this.errorMessage = 'Registration failed',
       });
     }
   }
 }
-
       

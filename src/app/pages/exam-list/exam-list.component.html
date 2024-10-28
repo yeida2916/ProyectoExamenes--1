@@ -1,3 +1,14 @@
+<nav class="navbar">
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">Test Generator</a></li>
+    <li><a href="#services">Generate Questions</a></li>
+    <li><a href="#contact">Examination Generated</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <h1>Selecciona Archivo</h1>
 <div class="drag-and-drop" 
      (dragover)="onDragOver($event)" 
      (drop)="onFileDrop($event)">
@@ -5,6 +16,7 @@
 </div>
 <input type="file" (change)="onFileSelect($event)" accept=".xlsx,.xls,.pdf" />
 <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+</div>
 <table *ngIf="excelData.length > 0">
   <tr *ngFor="let row of excelData">
     <td *ngFor="let cell of row">{{ cell }}</td>
