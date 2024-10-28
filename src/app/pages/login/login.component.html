@@ -2,17 +2,21 @@
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="icon">
       <i class="bi bi-person-circle fs-1"></i> <!-- Tamaño grande -->
-    
     </div>
     <div class="input-icon-wrapper">
       <input formControlName="email" type="email" placeholder="Email">
-      <i class="bi bi-envelope"></i>
+      <i class="bi bi-envelope fs-3"></i>
     </div>
     <div class="input-icon-wrapper">
+      
       <input formControlName="password" [type]="showPassword ? 'text' : 'password'" placeholder="Password">
-      <i class="bi bi-lock"></i>
-      <button type="button" class="toggle-password" (click)="toggleShowPassword()">Show</button>
+      <i class="bi bi-lock fs-3"></i>
+      <button type="button" class="toggle-password" (click)="toggleShowPassword()">
+        <i class="bi" [ngClass]="showPassword ? 'bi-eye-fill' : 'bi-eye-slash-fill'"></i>
+      </button>
+    
     </div>
+
     <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
     <div class="button-group">
       <button type="submit">Login</button>
