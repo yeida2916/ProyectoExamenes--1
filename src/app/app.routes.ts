@@ -10,5 +10,5 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'recover-password', component: RecoverPasswordComponent },
   { path: 'exam-list', component: ExamListComponent, canActivate: [AuthGuard] },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/exam-list', pathMatch: 'full' },
 ];
