@@ -15,6 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class RegisterComponent {
   registerForm: FormGroup;
   errorMessage: string | null = null;
+  showPassword =false;
+  showConfirmPassword = false;  
 
   constructor(
     private fb: FormBuilder,
@@ -27,6 +29,16 @@ export class RegisterComponent {
       confirmPassword: ['', Validators.required],
     });
   }
+
+  toggleShowPassword() {
+    this.showPassword = !this.showPassword;
+
+  }
+
+  toggleShowConfirmPassword() {
+    this.showConfirmPassword = !this.showConfirmPassword;
+  }
+
 
   onSubmit() {
     if (this.registerForm.valid) {
