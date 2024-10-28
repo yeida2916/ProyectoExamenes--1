@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center; /* Alinea los elementos al centro */
   align-items: center; /* Alinea verticalmente los elementos */
-  height: 65px; /* Altura de la barra de navegación */
+  height: 55px; /* Altura de la barra de navegación */
 }
 
 .navbar ul {
