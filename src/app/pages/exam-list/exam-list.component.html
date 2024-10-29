@@ -1,19 +1,4 @@
-<nav class="navbar">
-  <ul class="navbar-menu">
-    <li><a href="exam-list.component.html" class="navbar-item">Home</a></li>
-    <li><a href="#about" class="navbar-item">Test Generator</a></li>
-    <li><a href="#services" class="navbar-item">Generate Questions</a></li>
-    <li><a href="#contact" class="navbar-item">Examination Generated</a></li>
-    <li class="navbar-item user-menu" (click)="toggleUserMenu()">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-      <i class="fas fa-user-circle user-icon"></i>
-      <ul class="user-dropdown" *ngIf="isUserMenuOpen">
-        <li><a href="#" (click)="logout()">Cerrar Sesión</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
+<app-navbar *ngIf="navbarVisible"></app-navbar>
 
 <div class="container">
   <h1>Selecciona Archivo</h1>

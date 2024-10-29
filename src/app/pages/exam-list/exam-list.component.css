@@ -1,55 +1,16 @@
-/* Estilos para la barra de navegación */
-.navbar {
-  width: 100%;
-  background-color: #333;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
+/* Estilos adicionales para centrar el contenedor */
+.container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  height: 55px;
-  padding: 0 20px;
-}
-
-.navbar-menu {
-  display: flex;
-  align-items: center;
-}
-
-.navbar ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-  align-items: center;
-}
-
-.navbar ul li {
-  margin-right: 20px;
-}
-
-.navbar ul li:last-child {
-  margin-right: 0;
-}
-
-.navbar ul li a {
-  display: block;
-  padding: 14px 20px;
-  text-align: center;
-  text-decoration: none;
-  color: white;
-}
-
-.navbar ul li a:hover {
-  background-color: #575757;
+  justify-content: center;
+  min-height: 80vh; /* Ajustar la altura mínima para centrar verticalmente */
+  margin-top: 1rem; /* Añadir margen superior para separar del navbar */
 }
 
 /* Estilos para el menú de usuario */
 .user-menu {
   position: relative;
-  left: 300px;
 }
 
 .user-icon {
@@ -61,14 +22,15 @@
 
 .user-dropdown {
   position: absolute;
-  top: 55px;
+  top: 100%;
   right: 0;
   background-color: white;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   list-style: none;
   margin: 0;
   padding: 0;
-  display: none;
+  z-index: 1000;
+  /* Deja fuera la propiedad `display`, ya que Angular lo controla con *ngIf */
 }
 
 /* Mostrar el menú de usuario al pasar el ratón sobre .user-menu */
@@ -76,11 +38,9 @@
   display: block;
 }
 
-.user-dropdown li {
-  padding: 0.5rem 1rem;
-}
-
 .user-dropdown li a {
+  display: block;
+  padding: 10px 20px;
   color: black;
   text-decoration: none;
 }
@@ -89,13 +49,14 @@
   background-color: #f1f1f1;
 }
 
-/* Estilos para la sección de arrastrar y soltar */
+/* Estilos adicionales para centrar el contenedor */
 .drag-and-drop {
   border: 2px dashed #ccc;
   padding: 2rem;
   text-align: center;
   margin-bottom: 1rem;
   transition: border-color 0.3s ease;
+  margin-top: 2rem; /* Añadir margen superior para separar del navbar */
 }
 
 .drag-and-drop:hover {
