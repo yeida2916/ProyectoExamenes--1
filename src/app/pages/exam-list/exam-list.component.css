@@ -1,78 +1,82 @@
-/* Estilos para la barra de navegación */
-.navbar {
-  width: 100%;
-  background-color: #333;
-  overflow: auto;
-  position: fixed; /* Fija la barra de navegación en la parte superior */
-  top: 0;
-  left: 0;
-  z-index: 1000; /* Asegura que la barra de navegación esté por encima de otros elementos */
-  display: flex;
-  justify-content: center; /* Alinea los elementos al centro */
-  align-items: center; /* Alinea verticalmente los elementos */
-  height: 55px; /* Altura de la barra de navegación */
-}
-
-.navbar ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-}
-
-.navbar ul li {
-  margin-right: 20px; /* Espaciado entre los elementos */
-}
-
-.navbar ul li:last-child {
-  margin-right: 0; /* Elimina el margen derecho del último elemento */
-}
-
-.navbar ul li a {
-  display: block;
-  padding: 14px 20px;
-  text-align: center;
-  text-decoration: none;
-  color: white;
-}
-
-.navbar ul li a:hover {
-  background-color: #ddd;
-  color: black;
-}
+/* Estilos adicionales para centrar el contenedor */
 .container {
-  background-color: #f9f9f9;
-  margin-top: 150px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 50vh; /* Altura completa de la pantalla */
+  justify-content: center;
+  min-height: 80vh; /* Ajustar la altura mínima para centrar verticalmente */
+  margin-top: 1rem; /* Añadir margen superior para separar del navbar */
 }
 
-h1 {
-  color: #333;
-  font-size: 3em;
+/* Estilos para el menú de usuario */
+.user-menu {
+  position: relative;
 }
 
+.user-icon {
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1000;
+  /* Deja fuera la propiedad `display`, ya que Angular lo controla con *ngIf */
+}
+
+/* Mostrar el menú de usuario al pasar el ratón sobre .user-menu */
+.user-menu:hover .user-dropdown {
+  display: block;
+}
+
+.user-dropdown li a {
+  display: block;
+  padding: 10px 20px;
+  color: black;
+  text-decoration: none;
+}
+
+.user-dropdown li a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Estilos adicionales para centrar el contenedor */
 .drag-and-drop {
   border: 2px dashed #ccc;
-  padding: 20px;
+  padding: 2rem;
   text-align: center;
-  margin: 10px 0;
-}
-.error {
-  color: red;
-  font-weight: bold;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease;
+  margin-top: 2rem; /* Añadir margen superior para separar del navbar */
 }
 
-table {
+.drag-and-drop:hover {
+  border-color: #333;
+}
+
+/* Estilos para la tabla responsiva */
+.responsive-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-table, th, td {
-  border: 1px solid black;
+.responsive-table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+}
+
+/* Estilos para mensajes de error */
+.error {
+  color: red;
+  font-weight: bold;
+  margin-top: 1rem;
 }
