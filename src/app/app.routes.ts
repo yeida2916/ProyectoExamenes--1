@@ -5,6 +5,7 @@ import { RegisterComponent } from './pages/register/register.component'; // supo
 import { RecoverPasswordComponent } from './pages/recover-password/recover-password.component'; // si lo implementas
 import { AuthGuard } from './core/guards/auth.guard'; // si lo implementas
 import { TestGeneratorComponent } from './pages/test-generator/test-generator.component';
+import { ExcelReaderComponent } from './pages/excel-reader/excel-reader.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -13,4 +14,5 @@ export const routes: Routes = [
   { path: 'exam-list', component: ExamListComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/exam-list', pathMatch: 'full' },
   { path: 'test-generator', component: TestGeneratorComponent},
+  { path: 'excel-reader', component: ExcelReaderComponent },
 ];
