@@ -1,14 +1,20 @@
 /* Estilos para la barra de navegación */
 .navbar {
+  display: flex;
+  justify-content: center; /* Centra los elementos de la barra de navegación */
+  align-items: center;
   background-color: #333;
   overflow: hidden;
   position: relative; /* Asegura que los elementos posicionados absolutamente dentro de la barra se posicionen correctamente */
 }
 
 .navbar-menu {
+  display: flex;
   list-style-type: none;
   margin: 0;
   padding: 0;
+  flex-grow: 1; /* Permite que los elementos del menú ocupen el espacio disponible */
+  justify-content: center; /* Centra los elementos del menú */
 }
 
 .navbar-item {
@@ -48,6 +54,7 @@
   color: white;
   cursor: pointer;
   border-radius: 50%;
+  right: 20px;
 }
 
 .user-dropdown {
