@@ -4,8 +4,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80vh; /* Ajustar la altura mínima para centrar verticalmente */
-  margin-top: 1rem; /* Añadir margen superior para separar del navbar */
+  min-height: 60vh; /* Ajustar la altura mínima para centrar verticalmente */
+  margin-top: 7rem; /* Añadir margen superior para separar del navbar */
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Estilos para la tabla responsiva */
