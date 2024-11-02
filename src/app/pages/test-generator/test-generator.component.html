@@ -16,11 +16,11 @@
       </div>
        <!-- Campo de Selección de Materia -->
 
-      <label for="subject">Materia:</label>
-        <select id="subject" formControlName="subject">
-        <option value="" disabled selected>Seleccione una materia</option>
-            <option *ngFor="let subject of subjects" [value]="subject">{{ subject }}</option>
-            </select>
+       <label for="subject">Materia:</label>
+       <select id="subject" formControlName="subject" class="centered-select">
+         <option value="" disabled selected>Seleccione una materia</option>
+         <option *ngFor="let subject of subjects" [value]="subject">{{ subject }}</option>
+       </select>
 
   
       <!-- Número de preguntas difíciles -->
