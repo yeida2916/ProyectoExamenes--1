@@ -25,6 +25,7 @@ body {
   
   /* Agrupación de formularios */
   .form-group {
+    margin-top: 10px; /* Espacio superior */
     margin-bottom: 2em; /* Espacio vertical entre campos */
   }
   
@@ -67,4 +68,10 @@ body {
     font-weight: bold; /* Negrita */
     text-align: center; /* Centrar texto */
   }
-  
+  .centered-select {
+    display: block;
+    margin: 0 auto; /* Centra el select horizontalmente */
+    text-align: center; /* Centra el texto dentro del select */
+    width: 100%; /* Asegura que el select ocupe el ancho completo */
+    max-width: 300px; /* Ajusta el ancho máximo según sea necesario */
+  }

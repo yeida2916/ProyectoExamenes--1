@@ -1,10 +1,21 @@
 function openPopup() {
-  document.getElementById("popup").style.display = "block";
-  document.getElementById("popup-overlay").style.display = "block";
+  const popup = document.getElementById("popup");
+  if (popup) {
+    popup.style.display = "block";
+  }
+  const popupOverlay = document.getElementById("popup-overlay");
+  if (popupOverlay) {
+    popupOverlay.style.display = "block";
+  }
 }
 
-
 function closePopup() {
-  document.getElementById("popup").style.display = "none";
-  document.getElementById("popup-overlay").style.display = "none";
+  const popup = document.getElementById("popup");
+  if (popup) {
+    popup.style.display = "none";
+  }
+  const popupOverlay = document.getElementById("popup-overlay");
+  if (popupOverlay) {
+    popupOverlay.style.display = "none";
+  }
 }

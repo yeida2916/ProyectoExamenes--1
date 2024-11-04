@@ -51,8 +51,11 @@ label {
 
 /* Wrapper de iconos y entradas con margen ajustado para mejor visibilidad en pantallas pequeñas */
 .input-icon-wrapper {
+  display: flex;
   position: relative;
   margin-bottom: 1.5em;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Estilos de input mejorados para pantallas pequeñas */
@@ -60,9 +63,19 @@ input {
   padding: 12px 50px 12px 50px; /* Ajusta el padding para evitar que el texto se superponga con los iconos */
 }
 
-.input-icon-wrapper input {
-  padding-right: 50px; /* Aumenta el espacio para que el texto no esté pegado al botón de mostrar/ocultar */
-  padding-left: 50px; /* Aumenta el espacio para que el texto no esté pegado al ícono de la izquierda */
+/* Ajusta el tamaño de los íconos y los inputs para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .input-icon-wrapper input {
+    flex: 1;
+  }
+
+  .input-icon-wrapper i { 
+    margin-left: 10px;
+  }
+
+  .toggle-password {
+    margin-left: 10px;
+  }
 }
 
 
@@ -78,7 +91,7 @@ input {
 /* Botón para mostrar/ocultar contraseña alineado mejor */
 .toggle-password {
   position: absolute;
-  right: 16px;
+  right: 2vw;
   top: 50%;
   transform: translateY(-50%);
   background: none;
