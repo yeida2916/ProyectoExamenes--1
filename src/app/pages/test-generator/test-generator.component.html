@@ -1,3 +1,4 @@
+<app-navbar *ngIf="navbarVisible"></app-navbar>
 <div class="container">
   <h2>Configuración de Examen</h2>
   <form [formGroup]="examForm">
@@ -8,6 +9,7 @@
         <option *ngFor="let number of maxQuestionsOptions" [value]="number">{{ number }}</option>
       </select>
     </div>
+
 
     <!-- Campo de Selección de Materia -->
     <div class="form-group">
