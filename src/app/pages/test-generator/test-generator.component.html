@@ -10,7 +10,6 @@
       </select>
     </div>
 
-
     <!-- Campo de Selección de Materia -->
     <div class="form-group">
       <label for="subject">Materia:</label>
@@ -36,9 +35,16 @@
       </select>
     </div>
 
+    <!-- Cargar archivo Excel -->
+    <div class="form-group">
+      <label for="excelFile">Seleccionar archivo Excel:</label>
+      <input type="file" id="excelFile" (change)="onFileChange($event)" accept=".xlsx, .xls" class="form-control"/>
+    </div>
+
+    <!-- Botón para convertir a PDF -->
+    <button type="button" class="btn btn-secondary" (click)="generatePdf()">Convertir a PDF</button>
+
     <!-- Botón de enviar -->
-    <button type="submit" class="btn btn-primary" (click)="submitSettings()">
-      Generar Examen
-    </button>
+    <button type="submit" class="btn btn-primary" (click)="submitSettings()">Generar Examen</button>
   </form>
 </div>
